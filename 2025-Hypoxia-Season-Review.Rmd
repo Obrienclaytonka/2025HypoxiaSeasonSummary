@@ -37,7 +37,7 @@ Since 1991, the [Connecticut Department of Energy and Environmental Protection (
 
 During the summer (June - September), surveys across LIS (Figure 1) are conducted at bi-weekly intervals to better define the areal extent and duration of hypoxia. During these surveys stations are sampled for in-situ parameters including dissolved oxygen, temperature, pH, and salinity. 
 
-```{r, fig.cap = '<i> Interactive map of LIS survey stations.  Click on each station to find information on sampling index period for that station. UCONN LISICOS Buoy Stations in Norwalk Harbor, Thames River, and the Eastern Sound have been discontinued. </i>'}
+```{r, fig_align = 'center', fig.cap = '<i> Interactive map of LIS survey stations.  Click on each station to find information on sampling index period for that station. UCONN LISICOS Buoy Stations in Norwalk Harbor, Thames River, and the Eastern Sound have been discontinued. </i>'}
 ##install.packages("sf")
 ##install.packages ("geojsonio")
 ##install.packages ("htmltools")
@@ -92,7 +92,7 @@ During the summer of 2025, CT DEEP conducted seven surveys across LIS between Ju
 
 
 <div class = 'itable'>
-```{r, tab.cap = '<i> Summary of sampling events during the 2025 Hypoxia Season</i>'}
+```{r, fig.align='center', tab.cap = '<i> Summary of sampling events during the 2025 Hypoxia Season</i>'}
 
 install.packages("kbleExtra")
 
@@ -104,8 +104,8 @@ dt <- read_excel("data/CruiseInfoTable2025.xlsx")
 
 dt %>%
   kbl(caption =  "2025 Long Island Sound Hypoxia Season Cruise Information. NC= Not Calculated", align = "c", col.names = c("Cruise", "Start Date", "End Date", "Number of Stations Sampled", "Number of Hypoxic Stations", "Hypoxic Area (mi2)", "Minimum DO", "Station Where Minimum DO Occurred")) %>%
-  kable_classic(full_width = F, html_font = "Cambria") %>%
-  scroll_box(height="300px") 
+  kable_classic(full_width = F, html_font = "Cambria") 
+  ##%>%scroll_box(height="300px") 
   
 ```
 </div>
@@ -116,7 +116,7 @@ dt %>%
 The Summer of 2025, defined as the months of June, July, and August, ranked among the hottest on record for Islip, NY (4th hottest) and Bridgeport, CT (13th); while Hartford, CT was close to normal. Air temperatures over the period at Bridgeport averaged 73.9ºF which was 0.6 degrees above the normal average of 73.3ºF. At Islip, summer 2025 air temperatures averaged 74.5ºF which was 1.9ºF above normal. Hartford summer air temperatures averaged 72.2ºF in 2025.  
 <br>
 
-```{r, fig.cap = '<i> 2025 Hartford, CT Air Temperature Departures from Normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=box  </i>'}
+```{r, fig.align = 'center', fig.cap = '<i> 2025 Hartford, CT Air Temperature Departures from Normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=box  </i>'}
 library(ggplot2)
 library(readxl)
 
@@ -148,9 +148,9 @@ ggplot(df, aes(fill=Station, x = Month1, y = ChangefromNormal)) +
 ```
 
 <br>
-Precipitation across the Long Island Sound region varied over the summer season. In Hartford, May and July was wetter than normal while June and August were drier than normal. This lead to the summer of 2025 being close to average for Hartford with 12.39 inches of precipitation falling compared to the normal 12.66 inches. Islip also received close to average precipitation (8.05 inches in 2025 compared to the average 11.50 inches). Bridgeport, however, only received 21% of the normal amount of precipitation (2.34 inches versus 11.07 normally) making 2025 one of the driest on record.  
+Precipitation across the Long Island Sound region varied over the summer season. In Hartford, May and July was wetter than normal while June and August were drier than normal. (Normal values are calculated by NOAA's National Center for Environmental Information for the 30 year period from 1991-2020. Data can be obtained by visiting the [NOAA Online Weather Data portal](https://www.weather.gov/wrh/Climate?wfo=okx).) This lead to the summer of 2025 being close to average for Hartford with 12.39 inches of precipitation falling compared to the normal 12.66 inches. Islip also received close to average precipitation (8.05 inches in 2025 compared to the average 11.50 inches). Bridgeport, however, only received 21% of the normal amount of precipitation (2.34 inches versus 11.07 normally) making 2025 one of the driest on record.  
 
-```{r, fig.cap = '<i> 2025 Bridgeport, CT precipitation departures from normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=okx </i>'}
+```{r, fig.align='center', fig.cap = '<i> 2025 Bridgeport, CT precipitation departures from normal. Source: NowData- NOAA Online Weather Data, Daily data for a month https://www.weather.gov/wrh/Climate?wfo=okx </i>'}
 library(ggplot2)
 library(readxl)
 
@@ -218,11 +218,11 @@ geom_hline(yintercept = -1.5, size=0.1)+
   
 ```
 <br>
-Wilson et. al., (2008) postulated that wind direction can impact hypoxia in LIS, with winds approaching 203ºT producing maximum stratification and hypoxia, while winds out of the northeast contribute to decreased hypoxic area. Duval et.al., (2023) suggest, after examining continuous buoy data, that "horizontal advection of DO by tides from the Upper East River into Western LIS" is responsible for modulating hypoxia.      
+Wilson et. al., (2008) documented that wind direction can impact hypoxia in LIS, with winds approaching 203ºT producing maximum stratification and hypoxia, while winds out of the northeast contribute to decreased hypoxic area. Duvall et.al., (2023) suggest, after examining continuous buoy data, that "horizontal advection of DO by tides from the Upper East River into Western LIS" is responsible for modulating hypoxia.      
 
 Performing full scale statistical analyses of the 2025 wind and tidal current data are outside the scope of this CTDEEP  report.The following plots were created by the ACIS Wind ROSES Wind Plotting Application on the [Northeast Regional Climate Center website](https://www.nrcc.cornell.edu/wxstation/windroses/windroses.html) and are presented to show that dominant wind direction varies from station to station across the Sound's coastal watershed. 
 
-```{r, echo=FALSE, out.width="90%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
+```{r, echo=FALSE, out.width="150%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
 
 knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 
@@ -234,7 +234,7 @@ knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 <br>
 The LISICOS Buoy are equipped with meteorological sensors that record air temperature, wind direction, and wind speed.  Wind data from the Western LIS Buoy during the summer months are shown below in a windrose plot created using R software by CTDEEP staff. Wind data from the Execution Rocks Buoy were not available. The pattern appears to be more similar to Bridgeport and Islip than LaGuardia and Westchester County with approximately 18% of the wind counts coming out of the southwest; the direction favorable for maximum stratification and hypoxia. However, it also shows about 15% out of the east; the direction that alleviates hypoxia. 
 
-```{r, echo=FALSE, out.width="200%", fig.cap = '<i>Windrose graph of wind speed and direction from Western Long Island Sound LISICOS Buoy during the summer of 2025 </i>'}
+```{r, echo=FALSE, out.width="300%", fig_align = 'center', fig.retina=2, fig.cap = '<i>Windrose graph of wind speed and direction from Western Long Island Sound LISICOS Buoy during the summer of 2025 </i>'}
 
 knitr::include_graphics("images/WLIS_Buoy.png")
 
@@ -249,7 +249,7 @@ knitr::include_graphics("images/WLIS_Buoy.png")
 
 Long Island Sound water temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, average water temperatures continued to decrease from a five-year high in 2020.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
 
-```{r, fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r,fig.align='center', fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 #load packages
 library (dygraphs)
@@ -279,7 +279,7 @@ widget3
 <brk>
 <brk>
 These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) over the station's period of record (1991/1994-2025). The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. January bottom water temperature in 2025 were lower than in 2024 at Station A4 while August bottom water temperatures were similar. M3 bottom water temperatures were also lower in January 2025 compared to January 2024, but August 2025 bottom water temperatures were about 0.9 degrees warmer.  
-```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r,fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
 
@@ -301,7 +301,7 @@ widget1
 ```
 
 
-```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station E1 in Central Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r,fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station E1 in Central Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
 
@@ -324,7 +324,7 @@ widget2
 
 ```
 
-```{r, fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station M3 in Eastern Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r,fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station M3 in Eastern Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 library(tidyverse)
 library(fs)
@@ -350,10 +350,22 @@ widget4
 ```
 <brk>
 
+<hr>
+
+## **Forecasting Hypoxia**
+The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM) fitted to water quality data collected by CTDEEP to predict or forecast the extent of hypoxia. The 2025 forecast predicted that the maximum hypoxic area would be 79 +/- 40 square kilometers (31 square miles)  and would occur near August 15. 
+
+```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additivge Model</i>'}
+
+knitr::include_graphics("images/forecast_toll_hypoxia_depiction_2025.png")
+
+
+
+```
 
 
 <hr>
-## **Maximum Hypoxic Area**
+## **2025 Maximum Hypoxic Area**
 <hr>
 
 CT DEEP utilizes survey data and geographic information system (GIS) software to interpolate bottom water dissolved oxygen concentrations across LIS and estimate the area effected by hypoxia for each survey. Changes in the maximum hypoxic area over the LIS sampling period of record can be seen in this [video](https://youtu.be/cl7MmCm8Kao?list=PLN8TZ_MzsZN_RhkPBddClSNZz74MDdr2b). 2025 CT DEEP dissolved oxygen maps are available on the [DEEP Monitoring Maps webpage](https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-Monitoring-Maps). Maps created by the IEC for the far Western Sound 2025 season can be seen in this [video](https://www.iec-nynjct.org/blog/western-long-island-sound-hypoxia-summer-2025-time-lapse-videos). 
@@ -362,7 +374,7 @@ CT DEEP utilizes survey data and geographic information system (GIS) software to
 
 
 
-```{r, echo=FALSE, out.width="90%", fig.align = 'center', fig.cap = '<i> LIS Dissolved Oxygen concentrations recorded during August 2025 survey</i>'}
+```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> LIS Dissolved Oxygen concentrations recorded during August 2025 survey</i>'}
 
 knitr::include_graphics("images/WQAUG25_DO_MAP.jpg")
 
@@ -469,8 +481,8 @@ dt <- read_excel("data/OnsetDuration2025.xlsx")
 
 dt %>%
   kbl(caption =  "2025 Long Island Sound Onset and Duration of Hypoxia Information", align = "c", col.names = c("Year", "Estimated Start Date", "Estimated End Date", "Duration (days)", "Maximum Area (mi2)")) %>%
-  kable_classic(full_width = F, html_font = "Cambria") %>%
-  scroll_box(height="300px") 
+  kable_classic(full_width = F, html_font = "Cambria") 
+  ##%>%scroll_box(height="300px") 
   
 ```
 </div>
@@ -816,10 +828,13 @@ This Project was funded by the United States Environmental Protection Agency, Lo
 <hr>
 ## **References**
 <hr>
+*Barrett LJ, Vlahos P, McGuinness MA, Whitney MM and Vaudrey JMP (2024) Droughts and deluges: changes in river discharge and the carbonate chemistry of an urbanized temperate estuary. Front. Mar. Sci. 11:1398087. doi:10.3389/fmars.2024.1398087.*
 
 *Duvall, M.S., Hagy, J.D. 3rd, Ammerman, J.W., Tedesco, M.A. High-frequency dissolved oxygen dynamics in an urban estuary, the Long Island Sound. Estuaries Coast. 2023;47:415-430. doi:10.1007/s12237-023-01278-8.*
 
 *Georgas, Nickitas, Lun Yin, Yu Jiang, Yifan Wang, Penelope Howell, Vincent Saba, Justin Schulte, Philip Orton, and Bin Wen. 2016. An Open-Access, Multi-Decadal, Three-Dimensional,Hydrodynamic Hindcast Dataset for the Long Island Sound and New York/New Jersey Harbor Estuaries. Journal of Marine Science and Engineering. 4(3):48. doi:10.3390/jmse4030048. www.mdpi.com/journal/jmse. *
+
+*Gledhill, D.K., M.M. White, J. Salisbury, H. Thomas, I. Mlsna, M. Liebman, B. Mook, J. Grear, A.C. Candelmo, R.C. Chambers, C.J. Gobler, C.W. Hunt, A.L. King, N.N. Price, S.R. Signorini, E. Stancioff, C. Stymiest, R.A. Wahle, J.D. Waller, N.D. Rebuck, Z.A. Wang, T.L. Capson, J.R. Morrison, S.R. Cooley, and S.C. Doney. 2015. Ocean and coastal acidification off New England and Nova Scotia. Oceanography 28(2):182–197, https://doi.org/10.5670/oceanog.2015.41.*
 
 *Howell, Penelope and Peter J. Auster. 2012. Phase Shift in an Estuarine Finfish Community Associated with Warming Temperatures. Marine and Coastal Fisheries: Dynamics, Management, and Ecosystem Science 4:481–495, 2012. DOI: 10.1080/19425120.2012.685144.*
 
