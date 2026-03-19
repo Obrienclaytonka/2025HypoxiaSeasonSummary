@@ -234,13 +234,34 @@ knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 <br>
 The LISICOS Buoy are equipped with meteorological sensors that record air temperature, wind direction, and wind speed.  Wind data from the Western LIS Buoy during the summer months are shown below in a windrose plot created using R software by CTDEEP staff. Wind data from the Execution Rocks Buoy were not available. The pattern appears to be more similar to Bridgeport and Islip than LaGuardia and Westchester County with approximately 18% of the wind counts coming out of the southwest; the direction favorable for maximum stratification and hypoxia. However, it also shows about 15% out of the east; the direction that alleviates hypoxia. 
 
-```{r, echo=FALSE, out.width="300%", fig_align = 'center', fig.retina=2, fig.cap = '<i>Windrose graph of wind speed and direction from Western Long Island Sound LISICOS Buoy during the summer of 2025 </i>'}
+```{r, fig.align='center', fig.cap = '<i> Windrose graph of wind speed and direction from Western Long Island Sound LISICOS Buoy during the summer of 2025. </i>' }
+##install.packages("openair")
 
-knitr::include_graphics("images/WLIS_Buoy.png")
+library(openair)
+library(ggplot2)
+##library(plotly)
 
+
+
+data <- read.csv("data/WLIS_MET_2025.csv")
+
+
+WRose <-windRose(data, ws = "ws", wd = "wd", 
+                 breaks = c(0, 5, 10, 15, 20, 25, 30), 
+                 cols = "increment", 
+                 paddle=FALSE, 
+                 offset = 0, 
+                 key.position = "right", 
+                 legend.title ="WESTERN LONG ISLAND SOUND BUOY n/counts of winds blowing from the indicated direction n/ Date Range: 2025-06-01 through 2025-09-01")
+
+
+png("WLIS_Windrose.png", width = 800, height = 600)
+##print(WRose)
+##dev.off()
 
 
 ```
+
 <brk>
    
 <hr>
@@ -249,7 +270,7 @@ knitr::include_graphics("images/WLIS_Buoy.png")
 
 Long Island Sound water temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, average water temperatures continued to decrease from a five-year high in 2020.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
 
-```{r,fig.align='center', fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r, fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 #load packages
 library (dygraphs)
@@ -267,7 +288,9 @@ widget3 <- dygraph(df, main = "Yearly Average Temperature of Long Island Sound")
   dyAxis ("x", drawGrid = FALSE)%>%
   dyAxis("y", label = "Water Temperature (ºC)") %>%
   dyOptions(pointShape = 'star', gridLineColor = "lightblue")%>%
+  dyLegend(width = 400)%>%
   dyRangeSelector() %>%
+  ##dyAxis("x", axisLabelFormatter = "function(d) { return d.getFullYear() }")%>%
   dyCrosshair(direction = "vertical") 
   ##dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
   ##dyRoller(rollPeriod = 1)
@@ -357,7 +380,7 @@ The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM
 
 ```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additivge Model</i>'}
 
-knitr::include_graphics("images/forecast_toll_hypoxia_depiction_2025.png")
+knitr::include_graphics("images/forecast_tool_hypoxia_depiction_2025.png")
 
 
 
