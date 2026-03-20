@@ -222,7 +222,7 @@ Wilson et. al., (2008) documented that wind direction can impact hypoxia in LIS,
 
 Performing full scale statistical analyses of the 2025 wind and tidal current data are outside the scope of this CTDEEP  report.The following plots were created by the ACIS Wind ROSES Wind Plotting Application on the [Northeast Regional Climate Center website](https://www.nrcc.cornell.edu/wxstation/windroses/windroses.html) and are presented to show that dominant wind direction varies from station to station across the Sound's coastal watershed. 
 
-```{r, echo=FALSE, out.width="200%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
+```{r, echo=FALSE, out.width="150%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
 
 knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 
