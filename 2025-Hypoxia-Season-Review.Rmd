@@ -59,7 +59,7 @@ RefPts$color <- ifelse(RefPts$StationType == "CTDEEP", "blue",
   
 mRefPts <-leaflet() %>% 
   addProviderTiles(providers$CartoDB.PositronNoLabels) %>% 
-  setView(lng = -72.799, lat = 41.126, zoom = 9) %>%   
+  setView(lng = -72.799, lat = 41.126, zoom = 8) %>%   
   addCircleMarkers(data=RefPts,  
                   lng= ~Longitude,
                   lat= ~Latitude, 
@@ -222,7 +222,7 @@ Wilson et. al., (2008) documented that wind direction can impact hypoxia in LIS,
 
 Performing full scale statistical analyses of the 2025 wind and tidal current data are outside the scope of this CTDEEP  report.The following plots were created by the ACIS Wind ROSES Wind Plotting Application on the [Northeast Regional Climate Center website](https://www.nrcc.cornell.edu/wxstation/windroses/windroses.html) and are presented to show that dominant wind direction varies from station to station across the Sound's coastal watershed. 
 
-```{r, echo=FALSE, out.width="150%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
+```{r, echo=FALSE, out.width="200%", fig.align = 'center', fig.cap = '<i> Windrose graphs of wind speed and direction from four regional airports around Long Island Sound during the summer of 2025. </i>'}
 
 knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 
@@ -270,7 +270,7 @@ png("WLIS_Windrose.png", width = 800, height = 600)
 
 Long Island Sound water temperatures have generally been increasing over the 30+ years of the survey (Howell and Auster, 2012; Rice and Stewart, 2013; O'Donnell, et. al., 2020; and Georgas, et. al., 2016). This year, average water temperatures continued to decrease from a five-year high in 2020.  The interactive graph below shows the yearly average water temperature across Long Island Sound.  
 
-```{r, fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+```{r,fig.align='center', fig.cap = '<i> Interactive map of average annual surface and bottom water temperatures measured in Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 
 #load packages
 library (dygraphs)
@@ -301,8 +301,9 @@ widget3
 ```
 <brk>
 <brk>
-These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) over the station's period of record (1991/1994-2025). The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. January bottom water temperature in 2025 were lower than in 2024 at Station A4 while August bottom water temperatures were similar. M3 bottom water temperatures were also lower in January 2025 compared to January 2024, but August 2025 bottom water temperatures were about 0.9 degrees warmer.  
-```{r,fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
+These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) over the station's period of record (1991/1994-2025). The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. January bottom water temperature in 2025 were lower than in 2024 at Station A4 while August bottom water temperatures were similar. M3 bottom water temperatures were also lower in January 2025 compared to January 2024, but August 2025 bottom water temperatures were about 0.9 degrees warmer. 
+
+```{r, fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
 library (dygraphs)
 library (readxl)
 
@@ -315,6 +316,7 @@ widget1 <- dygraph(df, main = "Water Temperature at Station A4") %>%
   dyAxis("y", label = "Water Temperature (ºC)") %>%
   dyOptions(gridLineColor = "lightblue")%>%
   dyRangeSelector(dateWindow = c("2023-01-01", "2026-01-01"))%>% 
+  dyLegend(width = 400)%>%
   dyCrosshair(direction = "vertical") 
   ##dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
   ##dyRoller(rollPeriod = 1)
@@ -337,6 +339,7 @@ widget2 <- dygraph(df, main = "Water Temperature at Station E1") %>%
   dyAxis("y", label = "Water Temperature (ºC)") %>%
   dyOptions(gridLineColor = "lightblue")%>%
   dyRangeSelector(dateWindow = c("2023-01-01", "2026-01-01")) %>%
+  dyLegend(width = 400)%>%
   dyCrosshair(direction = "vertical") 
   ##dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
   ##dyRoller(rollPeriod = 1)
@@ -364,6 +367,7 @@ widget4 <- dygraph(df, main = "Water Temperature at Station M3") %>%
   dyAxis("y", label = "Water Temperature (ºC)") %>%
   dyOptions(gridLineColor = "lightblue")%>%
   dyRangeSelector(dateWindow = c("2023-01-01", "2026-01-01")) %>%
+  dyLegend(width = 400)%>%
   dyCrosshair(direction = "vertical") 
   ##dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
   ##dyRoller(rollPeriod = 1)
@@ -376,7 +380,7 @@ widget4
 <hr>
 
 ## **Forecasting Hypoxia**
-The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM) fitted to water quality data collected by CTDEEP to predict or forecast the extent of hypoxia. The 2025 forecast predicted that the maximum hypoxic area would be 79 +/- 40 square kilometers (31 square miles)  and would occur near August 15. 
+The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM) fitted to water quality data collected by CTDEEP to predict or forecast the extent of hypoxia. The forecast is part of a broader [Hypoxia Communications Toolkit](https://lispartnership.org/our-vision-and-plan/clean-waters-and-healthy-watersheds/reduce-nutrients/hypoxia-toolkit/). The 2025 forecast predicted that the maximum hypoxic area would be 79 +/- 40 square kilometers (31 square miles) and would occur near August 15. This [Story Map](https://storymaps.arcgis.com/stories/5a83ce1974bd472f8df111a3e2ad3fc8) describes the forecast tool and gives a history of the Partnership's efforts to reduce hypoxia and improve water quality.  
 
 ```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additivge Model</i>'}
 
@@ -654,12 +658,17 @@ To characterize the carbonate system total alkalinity, dissolved inorganic carbo
 
 Aragonite is one of the more soluble forms of calcium carbonate and is widely used by shellfish, coral, crustaceans, and even some species of phytoplankton to build shells and skeletons. When the aragonite saturation state is above 3, the survival and reproduction rates of marine calcifers are better/normal. When levels fall below 3, these organisms become stressed. When aragonite saturation states fall below 1, shells begin to dissolve. Aragonite saturation states derived from spec pH and DIC using CO2SYS are included in the dashboard for 2023 and 2024; 2025 data were not yet available. Calculated LIS aragonite saturation states in these two years were below 1.5 with the lowest values found during Spring. These values were generally consistent with those calculated by Gledhill et. al. (2015). (See the [regional conditions map](https://necan.org/map-regional-conditions/).)
 
- 
+
+Explore LIS OA data with this 
+<a href="https://1oyc7t-obrienclaytonka.shinyapps.io/CTDEEP_LIS_Ocean_Acidification/" class="btn btn-primary" role="button"target="_blank" rel="noopener noreferrer">Interactive Data Dashboard</a>
 
 
-```{r, echo=FALSE, fig.align = 'center', fig.cap = '<i> Interactive Coastal acidification Data Dashboard. Dashboard created by Kaleb Boudreaux after concept created by Goes Lab at Columbia University </i>'}
+```{r, echo=FALSE, fig.align = 'left', fig.cap = '<i> Interactive Coastal acidification Data Dashboard. Dashboard created by Kaleb Boudreaux after concept created by Goes Lab at Columbia University </i>'}
 
-knitr::include_app("https://1oyc7t-obrienclaytonka.shinyapps.io/CTDEEP_LIS_Ocean_Acidification/", height = "600px")
+##[Interactive Coastal Acidification Data ##Dashboard](https://1oyc7t-obrienclaytonka.shinyapps.io/CTDEEP_LIS_Ocean_Acidification/){:target="_blank"}
+
+
+##knitr::include_app("https://1oyc7t-obrienclaytonka.shinyapps.io/CTDEEP_LIS_Ocean_Acidification/", height = "1300px")
 
 ```
 
