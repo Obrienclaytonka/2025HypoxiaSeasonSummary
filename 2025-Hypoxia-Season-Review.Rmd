@@ -29,6 +29,7 @@ options(repos = list(CRAN = "http://cran/rstudio.com/"))
 <hr>
 ## **Background** 
 <hr>
+
 Hypoxia is a condition in which of low or depleted dissolved oxygen concentrations are observed in the waters of Long Island Sound (LIS).  Hypoxia impacts up to half of the LIS waters each summer. The primary cause of hypoxia is excess nitrogen from human sources. These sources include sewage treatment plant discharges, storm water runoff and atmospheric deposition.
 
 Dissolved oxygen (DO) levels below 3.0 mg/L are considered hypoxic in LIS.  Hypoxic conditions cause impairment and in some cases death to aquatic life. Some studies have found DO can become limiting below 4.8 mg/L for sensitive fish species while more tolerant species are not affected until DO falls below 2.0 mg/L (Simpson et al. 1995, 1996).  
@@ -86,7 +87,7 @@ mRefPts <-leaflet() %>%
 mRefPts
 
 ```
-</br>
+<br>
 
 During the summer of 2025, CT DEEP conducted seven surveys across LIS between June 2 and August 28.  IEC conducted twelve surveys in western LIS between June 17 and September 9. Hypoxic conditions were documented during two CT DEEP surveys and seven IEC surveys. 
 
@@ -113,6 +114,7 @@ dt %>%
 <hr>
 ## **Weather Summary**
 <hr>
+
 The Summer of 2025, defined as the months of June, July, and August, ranked among the hottest on record for Islip, NY (4th hottest) and Bridgeport, CT (13th); while Hartford, CT was close to normal. Air temperatures over the period at Bridgeport averaged 73.9ºF which was 0.6 degrees above the normal average of 73.3ºF. At Islip, summer 2025 air temperatures averaged 74.5ºF which was 1.9ºF above normal. Hartford summer air temperatures averaged 72.2ºF in 2025.  
 <br>
 
@@ -230,7 +232,6 @@ knitr::include_graphics("images/Wind_Speeds_around_LIS_summer_2025.png")
 
 ```
 
-
 <br>
 The LISICOS Buoy are equipped with meteorological sensors that record air temperature, wind direction, and wind speed.  Wind data from the Western LIS Buoy during the summer months are shown below in a windrose plot created using R software by CTDEEP staff. Wind data from the Execution Rocks Buoy were not available. The pattern appears to be more similar to Bridgeport and Islip than LaGuardia and Westchester County with approximately 18% of the wind counts coming out of the southwest; the direction favorable for maximum stratification and hypoxia. However, it also shows about 15% out of the east; the direction that alleviates hypoxia. 
 
@@ -262,7 +263,6 @@ png("WLIS_Windrose.png", width = 800, height = 600)
 
 ```
 
-<brk>
    
 <hr>
 ## **Water Temperature**
@@ -299,8 +299,8 @@ widget3
 
 
 ```
-<brk>
-<brk>
+<br>
+<br>
 These three graphs show the measured bottom and surface water temperatures at stations representative of the Western (Station A4), Central (Station E1) and Eastern Sound (Station M3) over the station's period of record (1991/1994-2025). The graphs are interactive. Use the slider at the bottom to zoom to a time period. You can also use the mouse to click and zoom. January bottom water temperature in 2025 were lower than in 2024 at Station A4 while August bottom water temperatures were similar. M3 bottom water temperatures were also lower in January 2025 compared to January 2024, but August 2025 bottom water temperatures were about 0.9 degrees warmer. 
 
 ```{r, fig.align='center', fig.width=7, fig.height=3.0, fig.cap = '<i> Interactive map of surface and bottom water temperatures measured during CT DEEP water quality cruises at Station A4 in Western Long Island Sound. Scroll over the data points to see values. Use the slider to zoom to a particular time period.  </i>'}
@@ -375,11 +375,12 @@ widget4 <- dygraph(df, main = "Water Temperature at Station M3") %>%
 widget4
 
 ```
-<brk>
+<br>
 
 <hr>
-
 ## **Forecasting Hypoxia**
+<hr>
+
 The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM) fitted to water quality data collected by CTDEEP to predict or forecast the extent of hypoxia. The forecast is part of a broader [Hypoxia Communications Toolkit](https://lispartnership.org/our-vision-and-plan/clean-waters-and-healthy-watersheds/reduce-nutrients/hypoxia-toolkit/). The 2025 forecast predicted that the maximum hypoxic area would be 79 +/- 40 square kilometers (31 square miles) and would occur near August 15. This [Story Map](https://storymaps.arcgis.com/stories/5a83ce1974bd472f8df111a3e2ad3fc8) describes the forecast tool and gives a history of the Partnership's efforts to reduce hypoxia and improve water quality.  
 
 ```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additivge Model</i>'}
@@ -538,7 +539,7 @@ In 2019, CT DEEP and the O'Donnell lab at the University of Connecticut Marine S
 **The maximum volume of water with concentrations below 3.0 mg/L occurred during the WQAUG25 survey and was 0.13 km3 (0.03 mi3).** Table 3 compares hypoxic area and volume by survey over the 2025 season. Figure 14 shows a time series of the maximum hypoxic volume from 1991 to 2025.
 
 <div class = 'itable'>
-```{r, echo=FALSE, out.width="75%", fig.align = 'left'}
+```{r, echo=FALSE, out.width="150%", fig.align = 'center'}
 
 install.packages("kbleExtra")
 
@@ -589,6 +590,7 @@ Vol_plot %>% plotly::ggplotly(fig.align='center')
 <hr>
 ## **Frequency of Hypoxia**
 <hr>
+
 Figure 15 illustrates how frequently the areas of Long Island Sound experience hypoxia. The colors represent the percentage of years in which hypoxic conditions have occurred in the bottom waters of Long Island Sound. The westernmost areas have experienced hypoxia almost every year since monitoring began. 
 
 The bar graph (Figure 16) provides a deeper dive into the data (percentages) used to create the frequency map. The colors of the bars correspond to the map legend. 
@@ -710,8 +712,7 @@ list(dt) %>%
   )
 ##options(repos = list(CRAN = "http://cran/rstudio.com/"))
 ```
-<brk>
-<brk>
+
 ```{r}
 MovAvg  <- read_excel("data/MovingAverage2025.xlsx")
 
@@ -726,8 +727,7 @@ list(MovAvg) %>%
     self_contained= TRUE
   )
 ```
-<brk>
-<brk>
+
 ```{r}
 
 TimDur  <- read_excel("data/timing and duration.xlsx")
@@ -742,8 +742,7 @@ list(TimDur) %>%
     self_contained=TRUE
       )
 ```
-<brk>
-<brk>
+
 ```{r}
 
 HypoxicVol <- read_excel("data/Hypoxic Volume.xlsx")
@@ -758,8 +757,7 @@ list(HypoxicVol) %>%
     self_contained= TRUE
       )
 ```
-<brk>
-<brk>
+
 ```{r}
 
 dt1 <- read_excel("data/2025_hypoxAreaVol.xlsx")
@@ -773,8 +771,7 @@ list(dt1) %>%
     icon = "fa fa-save",
     self_contained= TRUE )
 ```
-<brk>
-<brk>
+
 ```{r}
 
 freq_94_24 <- read_excel("data/freq_94_25.xlsx")
@@ -788,8 +785,6 @@ list(freq_94_24) %>%
     icon = "fa fa-save", 
     self_contained = TRUE)
 ```
-<brk>
-<brk>
 
 ```{r}
 avgtmp <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 1)
@@ -809,8 +804,7 @@ list("AvgTmp"=avgtmp, "A4"=a4, "E1"=e1, "M3"=m3) %>%
     self_contained = TRUE)
 
 ```
-<brk>
-<brk>
+
 ```{r}
 OA <- read_excel("data/LIS_OA_KAO12.16.25.xlsx")
 
@@ -825,8 +819,8 @@ list(OA) %>%
     self_contained = TRUE)
 
 ```
-<brk>
-<brk>
+<br>
+<br>
 
 
 <hr>
@@ -845,7 +839,7 @@ list(OA) %>%
 
 <a href="https://lisicos.uconn.edu/index.php"><img src = "images/uconn_lisicos_hdr.png"  alt = "LISICOS Logo" width="310" height="100"></a>
 
-<brk>
+<br>
 **Report Prepared by:** <br>
 Katie O'Brien-Clayton, CT DEEP <br>
 [katie.obrien-clayton@ct.gov](katie.obrien-clayton@ct.gov)<br>
@@ -855,7 +849,7 @@ Katie O'Brien-Clayton, CT DEEP <br>
 Cover photo: Carriel Cataldi, LIS Water Quality Monitoring Program Staff<br>
 This Project was funded by the United States Environmental Protection Agency, Long Island Sound Partnership through grant funds administered by CT DEEP and IEC.  
 
-<brk>
+<br>
 
 <hr>
 ## **References**
@@ -880,12 +874,4 @@ This Project was funded by the United States Environmental Protection Agency, Lo
 
 *Wilson, Robert E., Swanson, R. Lawrence, and Crowley, Heather A. 2008. Perspectives on long-term variations in hypoxic conditions in western Long Island Sound.  J. Geophys. Res. 113, C12011. doi: 10.1029/2007JC00469.*
 
-
-
-
-
-
-
-
-
-
+</div>
