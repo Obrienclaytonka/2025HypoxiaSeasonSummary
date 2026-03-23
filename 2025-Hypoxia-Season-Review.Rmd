@@ -712,7 +712,7 @@ list(dt) %>%
   )
 ##options(repos = list(CRAN = "http://cran/rstudio.com/"))
 ```
-
+<br>
 ```{r}
 MovAvg  <- read_excel("data/MovingAverage2025.xlsx")
 
@@ -727,7 +727,7 @@ list(MovAvg) %>%
     self_contained= TRUE
   )
 ```
-
+<br>
 ```{r}
 
 TimDur  <- read_excel("data/timing and duration.xlsx")
@@ -742,7 +742,7 @@ list(TimDur) %>%
     self_contained=TRUE
       )
 ```
-
+<br>
 ```{r}
 
 HypoxicVol <- read_excel("data/Hypoxic Volume.xlsx")
@@ -757,7 +757,7 @@ list(HypoxicVol) %>%
     self_contained= TRUE
       )
 ```
-
+<br>
 ```{r}
 
 dt1 <- read_excel("data/2025_hypoxAreaVol.xlsx")
@@ -771,7 +771,7 @@ list(dt1) %>%
     icon = "fa fa-save",
     self_contained= TRUE )
 ```
-
+<br>
 ```{r}
 
 freq_94_24 <- read_excel("data/freq_94_25.xlsx")
@@ -785,7 +785,7 @@ list(freq_94_24) %>%
     icon = "fa fa-save", 
     self_contained = TRUE)
 ```
-
+<br>
 ```{r}
 avgtmp <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 1)
 a4 <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 2)
@@ -804,7 +804,7 @@ list("AvgTmp"=avgtmp, "A4"=a4, "E1"=e1, "M3"=m3) %>%
     self_contained = TRUE)
 
 ```
-
+<br>
 ```{r}
 OA <- read_excel("data/LIS_OA_KAO12.16.25.xlsx")
 
