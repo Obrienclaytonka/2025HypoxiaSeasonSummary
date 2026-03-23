@@ -634,7 +634,7 @@ plotly:: ggplotly(percent_plot, tooltip = c("label1", "label2"))
 
 
 ```
-
+</div>
 
 <hr>
 ## **Hypoxia and Coastal Acidification**
