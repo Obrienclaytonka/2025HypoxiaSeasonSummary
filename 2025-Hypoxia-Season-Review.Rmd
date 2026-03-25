@@ -5,7 +5,8 @@ output:
       css: style.css
       toc: yes
       toc_float: 
-        collapsed: false
+        section_divs: false
+        number_sections: false
       includes:
           in_header: header-image.html
       
@@ -277,20 +278,21 @@ library (dygraphs)
 library(tidyverse)
 library(fs)
 library(readxl)
+library(htmlwidgets)
 
 
 
 df <- read_excel("data/YearlyAvgTemp_pivot2.xlsx", 1)
+df$YEAR <- as.Date(paste(df$YEAR, 1, 1, sep= "-"))
 
 
 widget3 <- dygraph(df, main = "Yearly Average Temperature of Long Island Sound") %>%
   dyGroup(c("AVGSURFACE", "AVGBOTTOM"), drawPoints = TRUE, pointSize= 7,  color = c("darkred", "blue")) %>%
-  dyAxis ("x", drawGrid = FALSE)%>%
+  dyAxis ("x", drawGrid = FALSE, axisLabelFormatter = JS("function(d) { return d.getFullYear() }"))%>%
   dyAxis("y", label = "Water Temperature (ºC)") %>%
   dyOptions(pointShape = 'star', gridLineColor = "lightblue")%>%
   dyLegend(width = 400)%>%
   dyRangeSelector() %>%
-  ##dyAxis("x", axisLabelFormatter = "function(d) { return d.getFullYear() }")%>%
   dyCrosshair(direction = "vertical") 
   ##dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
   ##dyRoller(rollPeriod = 1)
