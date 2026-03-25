@@ -385,7 +385,7 @@ widget4
 
 The Long Island Sound Partnership is utilizing a Generalized Additive Model (GAM) fitted to water quality data collected by CTDEEP to predict or forecast the extent of hypoxia. The forecast is part of a broader [Hypoxia Communications Toolkit](https://lispartnership.org/our-vision-and-plan/clean-waters-and-healthy-watersheds/reduce-nutrients/hypoxia-toolkit/). The 2025 forecast predicted that the maximum hypoxic area would be 79 +/- 40 square kilometers (31 square miles) and would occur near August 15. This [Story Map](https://storymaps.arcgis.com/stories/5a83ce1974bd472f8df111a3e2ad3fc8) describes the forecast tool and gives a history of the Partnership's efforts to reduce hypoxia and improve water quality.  
 
-```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additivge Model</i>'}
+```{r, echo=FALSE, out.width="80%", fig.align = 'center', fig.cap = '<i> Forecasted maximum area of LIS Hypoxia in 2025 based on EPA LISP Generalized Additive Model</i>'}
 
 knitr::include_graphics("images/forecast_tool_hypoxia_depiction_2025.png")
 
